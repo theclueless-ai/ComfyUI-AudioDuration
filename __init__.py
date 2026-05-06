@@ -10,7 +10,7 @@ class AudioDuration:
                 "audio": ("AUDIO",),
                 "extra_seconds": ("INT", {"default": 0, "min": 0, "max": 9999}),
                 "min_duration": ("INT", {
-                    "default": 0,
+                    "default": 4,
                     "min": 0,
                     "max": 9999,
                     "tooltip": (
@@ -21,7 +21,7 @@ class AudioDuration:
                         "exige >= 4s) y no quieres que el gate descarte ese chunk. "
                         "Cuando la duracion es 0 (audio vacio) NO se eleva, asi los "
                         "crops fuera del audio siguen siendo bloqueados por el gate. "
-                        "Default 0 = comportamiento original (sin elevacion)."
+                        "Default 4 (minimo de Seedance). Pon 0 para desactivar."
                     ),
                 }),
             }
