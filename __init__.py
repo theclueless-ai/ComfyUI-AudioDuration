@@ -9,6 +9,8 @@ class AudioDuration:
             "required": {
                 "audio": ("AUDIO",),
                 "extra_seconds": ("INT", {"default": 0, "min": 0, "max": 9999}),
+            },
+            "optional": {
                 "min_duration": ("INT", {
                     "default": 4,
                     "min": 0,
@@ -24,7 +26,7 @@ class AudioDuration:
                         "Default 4 (minimo de Seedance). Pon 0 para desactivar."
                     ),
                 }),
-            }
+            },
         }
 
     RETURN_TYPES = ("INT",)
@@ -32,7 +34,7 @@ class AudioDuration:
     FUNCTION = "calculate"
     CATEGORY = "audio"
 
-    def calculate(self, audio, extra_seconds, min_duration):
+    def calculate(self, audio, extra_seconds, min_duration=4):
         waveform = audio["waveform"]      # shape: (1, 1, samples)
         sample_rate = audio["sample_rate"]
         num_samples = waveform.shape[-1]
